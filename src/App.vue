@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Playground />
+    <Post
+      v-for="post in posts"
+      v-bind:text="post.text"
+    />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Playground from './components/Playground.vue'
+import Post from './components/Post.vue'
 
 export default {
   name: 'app',
+  data: () => ({
+    posts: [
+      {
+        text: 'New article'
+      },
+      {
+        text: 'Another article'
+      }
+    ]
+  }),
   components: {
-    HelloWorld
+    HelloWorld,
+    Playground,
+    Post
   }
 }
 </script>
